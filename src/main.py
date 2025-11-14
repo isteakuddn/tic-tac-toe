@@ -1,18 +1,27 @@
 import sys
-import pygame
-from pygame.locals import *
+import pygame as pg
+from random import randint
 
-pygame.init()
-pygame.display.set_caption("Fight Club Tic-Tac-Toe")
+WIN_SIZE = 450
 
-WINDOW_size = (400, 400)
-
-screen = pygame.display.set_mode(WINDOW_size, 0, 32)
-
-while True:
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            pygame.quit()
-            sys.exit()
+class Game:
+    def __init__(self):
+        pg.init()
+        self.screen = pg.display.set_mode([WIN_SIZE] * 2)
+        self.clock = pg.time.Clock()
     
-    pygame.display.update()
+    def check_events(self):
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                pg.quit()
+                sys.exit()
+
+    def run(self):
+        while True:
+            self.check_events()            
+            pg.display.update()
+            self.clock.tick(60)
+
+if __name__ == "__main__":
+    game = Game()
+    game.run()
