@@ -1,2 +1,2 @@
-# Fight Club Tic-Tac-Toe
+# Tic-Tac-Toe
 
